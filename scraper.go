@@ -9,6 +9,7 @@ import (
 	"strings"
 	_ "strconv"
 	"time"
+	"strings"
 )
 
 func main() {
@@ -96,6 +97,7 @@ func scrape(language string, filename string) {
 		title := strings.TrimSpace(s.Find("h3 a").Text())
 		owner := s.Find("span.prefix").Text()
 		description := s.Find("p.col-9").Text()
+		description = strings.TrimSpace(description)
 		url, _ := s.Find("h3 a").Attr("href")
 		url = "https://github.com" + url
 		ownerImg, _ := s.Find("p.repo-list-meta a img").Attr("src")
