@@ -29,6 +29,12 @@ func main() {
 		scrape("ruby", filename)
 		scrape("rust", filename)
 		scrape("python", filename)
+		scrape("dart", filename)
+		scrape("java", filename)
+		scrape("c", filename)
+		scrape("c++", filename)
+		scrape("php", filename)
+		scrape("shell", filename)
 
 		gitPull()
 		gitAddAll()
@@ -90,7 +96,7 @@ func scrape(language string, filename string) {
 		panic(err)
 	}
 
-	if doc, e = goquery.NewDocument(fmt.Sprintf("https://github.com/trending?l=%s", language)); e != nil {
+	if doc, e = goquery.NewDocument(fmt.Sprintf("https://github.com/trending/%s?since=daily", language)); e != nil {
 		panic(e.Error())
 	}
 
