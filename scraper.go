@@ -39,6 +39,7 @@ func main() {
 		gitPull()
 		gitAddAll()
 		gitCommit(dateString)
+		gitPush()
 
 		time.Sleep(time.Duration(24) * time.Hour)
 	}
